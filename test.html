@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction()
+{
+	//alert("Page is loaded");
+	var start = new Date().getTime();
+	//console.log(findLemmas("gave"));
+    //document.write(findLemmas('gave'));
+    var lemma = findLemmas('gave');
+	var end = new Date().getTime();
+	var time = end - start;
+	alert(time + 'ms\n' + lemma);
+}
+
+
+function findLemmas(words, callback){
+    var word;
+
+    if(typeof words == "string"){
+        words = [words];
+    }
+
+    if(!Array.isArray(words) || !words.length){
+        return callback();
+    }
+
+    for(i=words.length-1; i>=0; i--){
+        word = (words[i] || "").toString("utf-8").trim();
+        if(!word.length){
+            words.splice(i,1);
+        }else{
+            words[i] = word;
+        }
+    }
+
+    if(!words.length){
+        return callback();
+    }
+
+    // for (var i = 0; i < palavras.length; i++) {
+    //     if (palavras[i] == words) {
+    //         return lemmas[i];
+    //     }
+    // }
+
+    return parseLemma(words);
+}
+
+function parseLemma(words, callback){
+
+	for (var i = 0; i < p_palavras.length; i++) {
+		
+		if (p_palavras[i] == words) {
+
+			return p_lemmas[i];
+
+		}
+	}
+
+}
+// var palavras = ["is", "are", "was"]
+// var lemmas = ["be", "be", "be"]
+</script>
+</head>
+
+<body onload="myFunction()">
+</body>
+<script src="lemmas/lemmas_all.js"></script>
+<script src="lemmas/lemmas_all_2.js"></script>
+</html>

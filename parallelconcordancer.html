@@ -1,0 +1,86 @@
+<script language="JavaScript" type="text/javascript">
+function include_js(filename){
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.src = filename;
+	script.type = 'text/javascript';
+	head.appendChild(script)
+}
+include_js('pc.js');
+</script>
+<script type="text/javascript">
+function func_get_txt(){
+	document.getElementById('textin').value = document.frm1.txt1.value;
+	document.getElementById('text2in').value = document.frm2.txt2.value;
+}
+</script>
+<script type="text/javascript">
+function notEmpty(){
+	var myTextField = document.getElementById('txt1');
+	if(myTextField.value != "")
+		alert("You entered: " + myTextField.value)
+	else
+		alert("Would you please enter some text?")		
+}
+</script>
+<script type="text/javascript" language="javascript" src="jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+function table() {
+		$('#example').dataTable( {
+			"fnDrawCallback": function ( oSettings ) {
+				if ( oSettings.bSorted || oSettings.bFiltered )
+				{
+					for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+					{
+						$('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+					}
+				}
+			},
+			"aoColumnDefs": [
+				{ "bSortable": false, "aTargets": [ 0 ] }
+			],
+			"aaSorting": [[ 5, 'desc' ]]
+		} );
+	} ;
+</script>
+<style type="text/css" title="currentStyle">
+@import "css/demo_table.css";
+</style>
+<div id="section_external">
+	<h2>ParallelConcordancer</h2>
+<form name="main">
+	Search Word(s) 
+	<input name="sword" type="text" size="20" /> 
+	<input type="radio" name="sunit" checked /> Word <input type="radio" name="sunit" /> Start With <input type="radio" name="sunit" /> End With <input type="radio" name="sunit" /> Include | 
+	Secondary Word(s)
+	<input name="sdword" type="text" size="20" /> 
+	<input type="radio" name="sunit2" checked /> Word <input type="radio" name="sunit2" /> Start With <input type="radio" name="sunit2" /> End With <input type="radio" name="sunit2" /> Include <br />
+	<input type="radio" name="textchoice" id="texchoice" checked> TEXT 1
+	<input type="radio" name="textchoice" id="textchoice"> TEXT 2<br />
+	<div style="display:none"><textarea id="textin" name="textin" cols="50" rows="20"></textarea>
+	<textarea id="text2in" name="text2in" cols="50" rows="20"></textarea></div>
+	<br />
+	<input type="button" value="Generate ParaConc" onClick="func_get_txt();pc(0);table();" />
+<div id="output" class="out"></div>
+<input name="tsword" type="hidden" />
+</form>
+
+<!-- TABLE TO CSV -->
+<script>
+function getCSVData(){
+ var csv_value=$('#example').table2CSV({delivery:'value'});
+ $("#csv_text").val(csv_value);	
+}
+</script>
+<script type="text/javascript" src="table2CSV.js" ></script>
+<form action="http://localhost/wordstat/getCSV.php" method ="post" > 
+<input type="hidden" name="csv_text" id="csv_text">
+<input type="submit" value="Get CSV File" onclick="getCSVData()" />
+</form>
+
+<!-- TABLE TO XLS -->
+<form action="http://localhost/wordstat/getXLS.php" method="post" target="_blank" onsubmit='$("#datatodisplay").val( $("<div>").append( $("#example").eq(0).clone() ).html() )'>
+<input type="hidden" id="datatodisplay" name="datatodisplay" />
+<input type="submit" value="Get XLS File" />
+</form>
+</div>

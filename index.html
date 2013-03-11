@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="wordstat, keywords, wordlist, parallel concordancer, monolingual concordancer, corpus, corpora, corpus linguistics" />
+	<meta name="description" content="wordstat: word statistics and text analysis tools"/>
+	<title>WORDSTAT: WORD STATISTICS AND TEXT ANALYSIS TOOLS</title>
+	<link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+</head>
+<body onload="txt1hide();txt2hide()">
+	<div id="container">
+		<div id="top">
+			<h1><a href="">WORDSTAT: WORD STATISTICS AND TEXT ANALYSIS TOOLS</a></h1>
+			<ul id="menu">
+				<li id="home" onClick="txt1hide();txt2hide();txt2hide()">Home</li>
+				<li id="wordlist" onClick="txt1show();txt2hide();">WordList</li>
+				<li id="keywords" onClick="txt1show();txt2hide();">KeyWords</li>
+				<li id="monoconcordancer" onClick="txt1show();txt2hide();">MonoConcordancer</li>
+				<li id="parallelconcordancer" onClick="txt1show();txt2show();">ParallelConcordancer</li>
+			</ul>
+			<span class="clear"></span>
+			<div id="txt1" style="display: none">
+			<a href="javascript:toggleFormVisibility(1,1);" id="sub1">CHANGE TEXT 1</a>
+				<form id="frm1" name="frm1" style="display: none">
+					<textarea id="txt1" name="txt1" cols="180" rows="10">WordSTAT is a simple web application for the analysis of words in texts. It reads direct input (in different encodings) directly from the internet and it produces word and keyword frequency lists, monolingual and bilingual concordances from these inputs.</textarea>
+				</form>
+			<a href="javascript:toggleFormVisibility(1,1);" id="nosub1" style="display: none">TEXT 1 OK</a>
+			</div>
+			
+			<div id="txt2" style="display: none">
+				<a href="javascript:toggleFormVisibility(2,2);" id="sub2">CHANGE TEXT 2</a>
+				<form id="frm2" name="frm2" style="display: none">
+					<textarea id="txt2" name="txt2" cols="180" rows="10">TEXT 2</textarea>
+				</form>
+			<a href="javascript:toggleFormVisibility(2,2);" id="nosub2" style="display: none">TEXT 2 OK</a>
+			</div>
+			
+		</div>
+		<div id="loading"><img src="css/images/loading.gif" alt="Loading..." /></div>
+		<div id="content">
+			<h2>WordSTAT</h2>
+			<p>
+				WordSTAT is a simple web application for the analysis of words in texts. It reads direct input (in different encodings) directly from the internet and it produces word and keyword frequency lists, monolingual and bilingual concordances from these inputs. 
+			</p>
+			<p>
+				No conversion needed, just input text to analyze your corpus... 
+			</p>
+		</div>
+		<div id="footer">
+			<p>Powered by <a href="http://lautenai.pos.ufsc.br/">roinuj iemalohtrab</a></p>
+			<!--
+			For citing WordSTAT use:<br />
+			<p>Bartholamei Junior, L. A. (2011). WordStat(1.0) [Computer Software]. Santa Catarina, Brazil: Federal University of Santa Catarina. Available from <a href="http://lautenai.pos.ufsc.br/labs/wordstat/">http://lautenai.pos.ufsc.br/labs/wordstat/</a>.</p>
+			-->
+		</div>
+	</div>
+	<script type="text/javascript" language="javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="menu.js"></script>
+	<script type="text/javascript" src="toggle.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
+</body>
+</html>
+</body>

@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+/******* GENERAL RESET *******/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+ tfoot, thead, tr, th, td {
+border: 0pt none;
+font-family: inherit;
+font-size: 100%;
+font-style: inherit;
+font-weight: inherit;
+margin: 0pt;
+padding: 0pt;
+vertical-align: baseline;
+}
+body{
+	line-height: 14px;
+	font-size: 12px;
+	background: #fff;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	margin: 0pt;
+	cursor: default;
+}
+table{
+	border-collapse: separate;
+	border-spacing: 0pt;
+}
+caption, th, td{
+	font-weight: normal;
+	text-align: left;
+}
+blockquote:before, blockquote:after, q:before, q:after{
+	content: "";
+}
+blockquote, q{
+	quotes: "" "";
+}
+input, textarea, select{
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+strong{
+	font-weight: 700;
+}
+ul{
+	list-style: outside;
+}
+a{
+	cursor: pointer;
+	color: #296ba5;
+	text-decoration: none;
+}
+.clear{
+	clear: both;
+	height: 0;
+	visibility: hidden;
+	display: block;
+}
+/******* /GENERAL RESET *******/
+/******* REUSE *******/
+h1, h2, h3, h4, h5, h6{
+	font-weight: 700;
+	color: #6ea6fb;
+	line-height: 1.8em;
+}
+h2{
+	font-size: 22px;
+}
+/******* /REUSE *******/
+/******* CONTAINER *******/
+#container{
+	width: 960px;
+	margin: 0pt auto;
+	color: #fff;
+}
+/******* /CONTAINER *******/
+/******* TOP *******/
+#top{
+	margin: 0 auto;
+	padding: 20px 0 0 0;
+}
+#top h1 a{
+	background: transparent url(images/logo_ws.jpg) no-repeat scroll left top;
+	display: block;
+	float: left;
+	height: 46px;
+	text-indent: -999999px;
+	width: 205px;
+}
+/******* /TOP *******/
+/******* MENU *******/
+#top #menu{
+	float: left;
+	list-style-type: none;
+	margin: 12px 0 0 26px;
+}
+#top #menu li{
+	float: left;
+	margin-right: 16px;
+	text-transform: uppercase;
+	color: #c2c2c2;
+}
+#top #menu li:hover{
+	color: #6fa5fd;
+	cursor: pointer;
+}
+/******* /MENU *******/
+/******* LOADING *******/
+#loading{
+	text-align: center;
+	visibility: hidden;
+}
+/******* /LOADING *******/
+/******* CONTENT *******/
+#content{
+	color: #7e7e7e;
+	margin: 0 0 20px 0;
+	line-height: 1.3em;
+	font-size: 11px;
+}
+#content p{
+	margin-bottom: 0.7em;
+}
+#content a{
+	font-weight: 700;
+	color: #6fa5fd;
+	border-bottom: 1px dotted #6fa5fd;
+}
+/******* /CONTENT *******/
+/******* FOOTER *******/
+#footer{
+	background: #efefef;
+	border: 1px solid #d0ccc9;
+	padding: 10px;
+	color: #7e7e7e;
+	font-size: 11px;
+	text-align: right;
+}
+/******* /FOOTER *******/

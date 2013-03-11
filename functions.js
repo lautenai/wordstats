@@ -1,0 +1,5 @@
+function removeHTMLTags(strInputCode){strInputCode=strInputCode.replace(/&(lt|gt);/g,function(strMatch,p1){return(p1=="lt")?"<":">";});var strTagStrippedText=strInputCode.replace(/<\/?[^>]+(>|$)/g,"");return strTagStrippedText;}
+//function _swf(palavra){for(var i=0;i<palavras.length;i++){if(palavras[i]==palavra){return frequencias[i];}}return 0;}
+//function _x2(a,b,c,d){x2=((Math.pow(a-(b*(a+c))/(b+d),2))/((b*(a+c))/(b+d)))+((Math.pow(c-((d*(a+c))/(b+d)),2))/((d*(a+c))/(b+d)));return x2;}
+//function _yx2(a,b,c,d){yx2=((Math.pow((a-(b*(a+c))/(b+d)-0.5),2))/((b*(a+c))/(b+d)))+((Math.pow((c-((d*(a+c))/(b+d))-0.5),2))/((d*(a+c))/(b+d)));return yx2;}
+//function _ll(a,b,c,d){var ca;var cc;if(a!=0){ca=a*Math.log(a);}else{ca=0;}if(c!=0){cc=c*Math.log(c);}else{cc=0;}ll=2*(ca+b*Math.log(b)+cc+d*Math.log(d)-(a+b)*Math.log(a+b)-(a+c)*Math.log(a+c)-(b+d)*Math.log(b+d)-(c+d)*Math.log(c+d)+(a+b+c+d)*Math.log(a+b+c+d));return ll;}

@@ -1,0 +1,103 @@
+<script language="JavaScript" type="text/javascript">
+function include_js(filename){
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.src = filename;
+	script.type = 'text/javascript';
+	head.appendChild(script)
+}
+include_js('kw.js');
+include_js('brown_data.js');
+include_js('js/jspos/lexer.js');
+include_js('js/jspos/lexicon.js_');
+include_js('js/jspos/POSTagger.js');
+</script>
+<script type="text/javascript">
+function func_get_txt(data){
+	document.getElementById('textin').value = document.frm1.txt1.value;
+}
+</script>
+<script type="text/javascript">
+function notEmpty(){
+	var myTextField = document.getElementById('txt1');
+	if(myTextField.value != "")
+		alert("You entered: " + myTextField.value)
+	else
+		alert("Would you please enter some text?")		
+}
+</script>
+<script type="text/javascript" language="javascript" src="jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+function table() {
+		$('#example').dataTable( {
+			"fnDrawCallback": function ( oSettings ) {
+				if ( oSettings.bSorted || oSettings.bFiltered )
+				{
+					for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+					{
+						$('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+					}
+				}
+			},
+			"aoColumnDefs": [
+				{ "bSortable": false, "aTargets": [ 0 ] }
+			],
+			"aaSorting": [[ 6, 'desc' ]]
+		} );
+	} ;
+</script>
+<style type="text/css" title="currentStyle">
+@import "css/demo_table.css";
+</style>
+<h2>KeyWords</h2>
+<form name="main">
+	<input name="wltype" type="hidden"/>
+	<input name="wltype" checked type="hidden"/>
+	<input name="listfreq" type="hidden" value="1" size="3"/>
+	<input type="hidden" name="numdeal"/>
+	<input type="hidden" name="kytype"/>
+	<input type="hidden" name="kytype"/>
+	<input type="hidden" name="kytype" checked />
+	<input type="hidden" name="tok"/>
+	<input type="hidden" name="tok" checked />
+	<div style="display:none"><textarea id="textin" name="textin" cols="120" rows="3"></textarea></div>
+	<input type="button" name="kw" value="Generate KeyWords" onclick="showLoading();func_get_txt(); keywords(0); table();hideLoading();"/>
+	<input type="button" name="cw" value="Generate KeyChars" onclick="showLoading();func_get_txt();keywords(1);table();hideLoading();"/>
+	<div id="output"></div>
+	<input name="tsword" type="hidden"/>
+</form>
+
+<!-- TABLE TO CSV -->
+<script>
+function getCSVData(){
+ var csv_value=$('#example').table2CSV({delivery:'value'});
+ $("#csv_text").val(csv_value);	
+}
+</script>
+<script type="text/javascript" src="table2CSV.js" ></script>
+<form action="http://localhost/wordstat/getCSV.php" method ="post" > 
+<input type="hidden" name="csv_text" id="csv_text">
+<input type="submit" value="Get CSV File" onclick="getCSVData()" />
+</form>
+
+<!-- TABLE TO XLS -->
+<form action="http://localhost/wordstat/getXLS.php" method="post" target="_blank" onsubmit='$("#datatodisplay").val( $("<div>").append( $("#example").eq(0).clone() ).html() )'>
+<input type="hidden" id="datatodisplay" name="datatodisplay" />
+<input type="submit" value="Get XLS File" />
+</form>
+
+
+<!-- PROCESS LOADING TEST -->
+<script>
+function showLoading(){
+	var loading = $("#loading");
+	loading
+		.css({visibility:"visible"})
+		.css({opacity:"1"})
+		.css({display:"block"});
+}
+function hideLoading(){
+	var loading = $("#loading");
+	loading.fadeTo(2000, 0);
+}
+</script>
